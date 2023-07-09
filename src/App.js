@@ -27,41 +27,40 @@ const App = () => {
   //updating the movies state
   };
 
-  return (
-    <div className="app">
-      <h1>MovieLand</h1>
+return (
+  <div className="app">
+  <h1>MovieLand</h1>
 
-      <div className="search">
-      <input
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)} //updating the search term state
-        onKeyUp={(e) => { //onKeyUp event handler to check if the user has pressed the enter key
-        if (e.key === "Enter") { //if the enter key is pressed, call the searchMovies function
-        searchMovies(searchTerm); //passing the search term as an argument
-        }
-      }}
-      //e.target represents the element that triggered the event (in this case, the input field) and e.target.value retrieves the current value of the input field.
-      placeholder="Search for movies"
-      />
+  <div className="search">
+  <input
+  value={searchTerm}
+  onChange={(e) => setSearchTerm(e.target.value)} //updating the search term state
+  onKeyUp={(e) => { //onKeyUp event handler to check if the user has pressed the enter key
+  if (e.key === "Enter") { //if the enter key is pressed, call the searchMovies function
+      searchMovies(searchTerm); //passing the search term as an argument
+      }
+    }}
+    //e.target represents the element that triggered the event (in this case, the input field) and e.target.value retrieves the current value of the input field.
+    placeholder="Search for movies"
+  />
       
-        <img
-          src={SearchIcon}
-          alt="search"
-          onClick={() => searchMovies(searchTerm)}
-        />
+  <img
+   src={SearchIcon}
+   alt="search"
+    onClick={() => searchMovies(searchTerm)}
+   />
+   </div>
+    {movies?.length > 0 ? ( //if the movies array has more than 0 items, display the movies
+    <div className="container"> 
+    {movies.map((movie) => ( //looping through the movies array and rendering a MovieCard component for each movie
+    <MovieCard movie={movie} /> //passing the movie as a prop to the MovieCard component
+     ))}
+    </div>
+     ) : (
+      <div className="empty">
+        <h2>No movies found</h2>
       </div>
-
-      {movies?.length > 0 ? ( //if the movies array has more than 0 items, display the movies
-        <div className="container"> 
-          {movies.map((movie) => ( //looping through the movies array and rendering a MovieCard component for each movie
-            <MovieCard movie={movie} /> //passing the movie as a prop to the MovieCard component
-          ))}
-        </div>
-      ) : (
-        <div className="empty">
-          <h2>No movies found</h2>
-        </div>
-      )}
+    )}
     </div>
   );
 };
