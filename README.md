@@ -24,12 +24,12 @@
 9. The input element is rendered, which allows users to enter a search term. The value of the input is controlled by the searchTerm state variable, and the 
    onChange event handler updates the searchTerm state whenever the input value changes.
 
-10.The onKeyUp event handler is added to the input element to detect when the enter key is pressed. If the enter key is pressed (e.key === "Enter"), the 
+10. The onKeyUp event handler is added to the input element to detect when the enter key is pressed. If the enter key is pressed (e.key === "Enter"), the 
    searchMovies function is called with the current search term.
 
-11.The search icon image is rendered, and the onClick event handler is attached to it. When clicked, it calls the searchMovies function with the current search 
+11. The search icon image is rendered, and the onClick event handler is attached to it. When clicked, it calls the searchMovies function with the current search 
    term.
 
-12.Conditional rendering is used to display either the movie cards or a "No movies found" message based on the length of the movies array.
+12. Conditional rendering is used to display either the movie cards or a "No movies found" message based on the length of the movies array.
 
 That's a summary of how the code works! It sets up the necessary state variables, handles the API request, and provides user interactivity for searching movies using the input field and the search icon.
