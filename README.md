@@ -1,4 +1,4 @@
-## The Movie Search App is a React application that allows users to search for movies and displays the search results in real-time. It provides a user-friendly interface where users can enter their desired movie title and instantly see a list of movies that match their search query.
+### The Movie Search App is a React application that allows users to search for movies and displays the search results in real-time. It provides a user-friendly interface where users can enter their desired movie title and instantly see a list of movies that match their search query.
 
 ### Here is a quick go-through to see how the code works.
 
