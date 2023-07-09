@@ -1,70 +1,29 @@
-# Getting Started with Create React App
+The Movie Search App is a React application that allows users to search for movies and displays the search results in real-time. It provides a user-friendly interface where users can enter their desired movie title and instantly see a list of movies that match their search query.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Here is a quick go-through to see how the code works.
 
-## Available Scripts
+The code imports necessary dependencies and components, such as React, useState, useEffect, MovieCard, and SearchIcon. It also imports the App.css stylesheet.
 
-In the project directory, you can run:
+The API_URL constant is defined, which holds the base URL of the OMDB API along with the API key.
 
-### `npm start`
+The App component is defined as a functional component. It sets up state variables using the useState hook: searchTerm to store the user's search term and movies to store the search results.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The searchMovies function is declared as an asynchronous function. It takes a title parameter representing the movie title to search for.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Inside the searchMovies function, an API request is made using the fetch function. The fetch function is called with the constructed URL that includes the API_URL and the search term title as a query parameter. The await keyword is used to wait for the response to be resolved, and the response is stored in the response variable.
 
-### `npm test`
+The response is then parsed as JSON using the response.json() method, and the resulting data is stored in the data variable.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The setMovies function is called with data.Search to update the movies state with the search results.
 
-### `npm run build`
+The return statement defines the JSX structure of the component.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The input element is rendered, which allows users to enter a search term. The value of the input is controlled by the searchTerm state variable, and the onChange event handler updates the searchTerm state whenever the input value changes.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The onKeyUp event handler is added to the input element to detect when the enter key is pressed. If the enter key is pressed (e.key === "Enter"), the searchMovies function is called with the current search term.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The search icon image is rendered, and the onClick event handler is attached to it. When clicked, it calls the searchMovies function with the current search term.
 
-### `npm run eject`
+Conditional rendering is used to display either the movie cards or a "No movies found" message based on the length of the movies array.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+That's a summary of how the code works! It sets up the necessary state variables, handles the API request, and provides user interactivity for searching movies using the input field and the search icon.
